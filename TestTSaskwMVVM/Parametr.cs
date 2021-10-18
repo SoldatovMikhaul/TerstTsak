@@ -51,11 +51,13 @@ namespace TestTakMVVM
         public enum ParametrTypes { Строка_с_историей, Простая_строка, Значение_из_списка, Набор_значчений_из_списк };
         public ParametrTypes Types { get; set; }
 
+
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
     }
 }

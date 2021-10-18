@@ -12,8 +12,8 @@
             <ColumnDefinition Width="0.8*" />
         </Grid.ColumnDefinitions>
 
-        <DataGrid x:Name="parametrsGrid" ItemsSource="{Binding Parametrs}" AutoGenerateColumns="True" SelectionChanged="DataGrid_SelectionChanged" Height="auto" Width="auto" Margin="0,0,107,268"  CanUserAddRows="True" CanUserDeleteRows="True">
-            <DataGrid.Columns>
+        <DataGrid x:Name="parametrsGrid" ItemsSource="{Binding Parametrs, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="True" SelectionChanged="DataGrid_SelectionChanged" Height="auto" Width="auto" Margin="0,0,107,268"  CanUserAddRows="True" CanUserDeleteRows="True">
+            <DataGrid.Columns >
                 <!--<DataGridTextColumn Header="Параметр" Binding="{Binding Path=Title}" Width="90"/>
                 <DataGridTemplateColumn Header="Тип">
                     <DataGridTemplateColumn.CellTemplate>
@@ -34,16 +34,17 @@
                     </DataGridTemplateColumn.CellEditingTemplate>
                 </DataGridTemplateColumn>-->
                 <DataGridTemplateColumn>
-                <DataGridTemplateColumn.CellTemplate>
-                    <DataTemplate>
-                        <Button Click="ChangeText_Click">Список</Button>
-                    </DataTemplate>
-                </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="ChangeText_Click">Список</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button Command="{Binding AddCommand}" Click="Button_Click" Height="20px" Width="55"  Margin="30,0,0,214" RenderTransformOrigin="-1.867,0.7" HorizontalAlignment="Left" VerticalAlignment="Bottom">add</Button>
-        <Button Command="{Binding RemoveCommand}" CommandParameter="{Binding SelectedParametr}" Click="Button_Click" Height="20px" Width="55"  Margin="130,0,0,214" RenderTransformOrigin="-1.867,0.7" HorizontalAlignment="Left" VerticalAlignment="Bottom">remove</Button>
+        <Button Command="{Binding AddCommand}" Height="20px" Width="55px"  Margin="30,0,0,214" RenderTransformOrigin="-1.867,0.7" HorizontalAlignment="Left" VerticalAlignment="Bottom">add</Button>
+        <Button Command="{Binding RemoveCommand}" CommandParameter="{Binding SelectedParametr}" Margin="135,0,0,214" RenderTransformOrigin="1,1" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Height="20px" Width="70px">remove</Button>
+
     </Grid>
 </Window>

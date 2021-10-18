@@ -55,7 +55,7 @@ namespace TestTaskMVVM
 
         public ApplicationViewModel()
         {
-            Parametrs = new ObservableCollection<Parametr>
+           Parametrs = new ObservableCollection<Parametr>
                 {
                     new Parametr {Title="Parametr1", Types=Parametr.ParametrTypes.Значение_из_списка },
                     new Parametr {Title="Parametr2", Types=Parametr.ParametrTypes.Набор_значчений_из_списк},

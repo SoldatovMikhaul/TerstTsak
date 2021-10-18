@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Serialization;
 using TestTaskMVVM;
 
 namespace TestTakMVVM
@@ -24,6 +26,12 @@ namespace TestTakMVVM
     /// </summary>
     public partial class MainWindow : Window
     {
+        [Serializable]
+        public class StudentsList
+        {
+            public List<Parametr> Parametrs;
+        }
+
         string connectionString;
         SqlDataAdapter adapter;
         DataTable parametrsTable;
@@ -33,12 +41,17 @@ namespace TestTakMVVM
             InitializeComponent();
             DataContext = new ApplicationViewModel();
             connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            /*XmlSerializer formatter = new XmlSerializer(typeof(StudentsList));
+            using (FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate))
+            {
+                formatter.Serialize(fs, dashboard);
+            }*/
 
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            string sql = "SELECT * FROM Phones";
+            string sql = "SELECT * FROM Parametrs_Table";
             parametrsTable = new DataTable();
             SqlConnection connection = null;
             try
@@ -48,10 +61,10 @@ namespace TestTakMVVM
                 adapter = new SqlDataAdapter(command);
                 Console.WriteLine("new SqlDataAdapter(command) " + new SqlDataAdapter(command));
                 // установка команды на добавление для вызова хранимой процедуры
-                adapter.InsertCommand = new SqlCommand("CreateParametr", connection);
+                adapter.InsertCommand = new SqlCommand("sp_InserParametr", connection);
                 adapter.InsertCommand.CommandType = CommandType.StoredProcedure;
                 adapter.InsertCommand.Parameters.Add(new SqlParameter("@title", SqlDbType.NVarChar, 50, "Title"));
-                adapter.InsertCommand.Parameters.Add(new SqlParameter("@type", SqlDbType.NVarChar, 50, "Company"));
+                adapter.InsertCommand.Parameters.Add(new SqlParameter("@type", SqlDbType.NVarChar, 50, "Types"));
                 SqlParameter parameter = adapter.InsertCommand.Parameters.Add("@Id", SqlDbType.Int, 0, "Id");
                 parameter.Direction = ParameterDirection.Output;
 
@@ -89,13 +102,39 @@ namespace TestTakMVVM
 
         private void Button1_Click(object sender, RoutedEventArgs e)
         {
-            //parametrsGrid.Items.Remove(parametrsGrid.SelectedItem);
+            parametrsGrid.Items.Remove(parametrsGrid.SelectedItem);
             UpdateDB();
         }
         private void ChangeText_Click(object sender, RoutedEventArgs e)
         {
             ParametrList taskWindow = new ParametrList();
             taskWindow.Show();
+        }
+        /*private void Main_wimndow_Load(object sender, RoutedEventArgs e) 
+        {
+            List<Parametr> parametrs = new List<Parametr>();
+            parametrs.Add(new Parametr("param5", Parametr.ParametrTypes.Значение_из_списка));
+
+        }*/
+        private void updateButton_Click(object sender, RoutedEventArgs e)
+        {
+            UpdateDB();
+        }   
+        private void deleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (parametrsGrid.SelectedItems != null)
+            {
+                for (int i = 0; i < parametrsGrid.SelectedItems.Count; i++)
+                {
+                    DataRowView datarowView = parametrsGrid.SelectedItems[i] as DataRowView;
+                    if (datarowView != null)
+                    {
+                        DataRow dataRow = (DataRow)datarowView.Row;
+                        dataRow.Delete();
+                    }
+                }
+            }
+            //UpdateDB();
         }
     }
 }
