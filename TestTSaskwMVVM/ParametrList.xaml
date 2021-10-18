@@ -7,14 +7,14 @@
         mc:Ignorable="d"
         Title="ParametrList" Height="450" Width="800">
     <Grid>
-        <ListBox Margin="10,41,602,69" x:Name="List">
-            <ListBoxItem>Значение 1</ListBoxItem>
+        <ListBox Margin="10,41,602,69" x:Name="List" IsManipulationEnabled="True">
+            <ListBoxItem >Значение 1</ListBoxItem>
             <ListBoxItem>Значение 2</ListBoxItem>
         </ListBox>
-        <Button Margin="238,41,477,349" RenderTransformOrigin="-1.039,-2.759">add</Button>
-        <Button Margin="238,91,477,299" RenderTransformOrigin="-1.039,-2.759">remove</Button>
+        <Button Margin="238,41,477,349" RenderTransformOrigin="-1.039,-2.759" Click="Button_Click">add</Button>
+        <Button Margin="238,91,477,299" RenderTransformOrigin="-1.039,-2.759" Click="Button_Click_1">remove</Button>
         <Button Margin="238,265,477,125" RenderTransformOrigin="-1.039,-2.759">ok</Button>
         <Button Margin="238,321,477,69" RenderTransformOrigin="-1.039,-2.759">cancel</Button>
-        <Button Margin="238,140,477,250" RenderTransformOrigin="-1.039,-2.759">eddit</Button>
+        <Button Margin="238,140,477,250" RenderTransformOrigin="-1.039,-2.759" Click="Button_Click_2">eddit</Button>
     </Grid>
 </Window>
