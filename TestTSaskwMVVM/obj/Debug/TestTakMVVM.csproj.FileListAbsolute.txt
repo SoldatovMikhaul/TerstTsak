@@ -1,0 +1,17 @@
+C:\Users\Misha\source\repos\TestTakMVVM\obj\Debug\TestTakMVVM.csprojAssemblyReference.cache
+C:\Users\Misha\source\repos\TestTakMVVM\obj\Debug\MainWindow.g.cs
+C:\Users\Misha\source\repos\TestTakMVVM\obj\Debug\App.g.cs
+C:\Users\Misha\source\repos\TestTakMVVM\obj\Debug\TestTakMVVM_MarkupCompile.cache
+C:\Users\Misha\source\repos\TestTakMVVM\bin\Debug\TestTakMVVM.exe.config
+C:\Users\Misha\source\repos\TestTakMVVM\bin\Debug\TestTakMVVM.exe
+C:\Users\Misha\source\repos\TestTakMVVM\bin\Debug\TestTakMVVM.pdb
+C:\Users\Misha\source\repos\TestTakMVVM\obj\Debug\MainWindow.baml
+C:\Users\Misha\source\repos\TestTakMVVM\obj\Debug\TestTakMVVM.g.resources
+C:\Users\Misha\source\repos\TestTakMVVM\obj\Debug\TestTakMVVM.Properties.Resources.resources
+C:\Users\Misha\source\repos\TestTakMVVM\obj\Debug\TestTakMVVM.csproj.GenerateResource.cache
+C:\Users\Misha\source\repos\TestTakMVVM\obj\Debug\TestTakMVVM.csproj.CoreCompileInputs.cache
+C:\Users\Misha\source\repos\TestTakMVVM\obj\Debug\TestTakMVVM.exe
+C:\Users\Misha\source\repos\TestTakMVVM\obj\Debug\TestTakMVVM.pdb
+C:\Users\Misha\source\repos\TestTakMVVM\obj\Debug\TestTakMVVM_MarkupCompile.lref
+C:\Users\Misha\source\repos\TestTakMVVM\obj\Debug\ParametrList.g.cs
+C:\Users\Misha\source\repos\TestTakMVVM\obj\Debug\ParametrList.baml

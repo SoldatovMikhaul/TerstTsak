@@ -1,0 +1,49 @@
+﻿<Window x:Class="TestTakMVVM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestTakMVVM"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="0.8*" />
+        </Grid.ColumnDefinitions>
+
+        <DataGrid x:Name="parametrsGrid" ItemsSource="{Binding Parametrs}" AutoGenerateColumns="True" SelectionChanged="DataGrid_SelectionChanged" Height="auto" Width="auto" Margin="0,0,107,268"  CanUserAddRows="True" CanUserDeleteRows="True">
+            <DataGrid.Columns>
+                <!--<DataGridTextColumn Header="Параметр" Binding="{Binding Path=Title}" Width="90"/>
+                <DataGridTemplateColumn Header="Тип">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                         <TextBlock Text="{Binding Path=Types}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <ComboBox ItemsSource="{Binding Path=Types}" SelectedItem="{Binding Path=Types}">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Path=Types}" />
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellEditingTemplate>
+                </DataGridTemplateColumn>-->
+                <DataGridTemplateColumn>
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <Button Click="ChangeText_Click">Список</Button>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Command="{Binding AddCommand}" Click="Button_Click" Height="20px" Width="55"  Margin="30,0,0,214" RenderTransformOrigin="-1.867,0.7" HorizontalAlignment="Left" VerticalAlignment="Bottom">add</Button>
+        <Button Command="{Binding RemoveCommand}" CommandParameter="{Binding SelectedParametr}" Click="Button_Click" Height="20px" Width="55"  Margin="130,0,0,214" RenderTransformOrigin="-1.867,0.7" HorizontalAlignment="Left" VerticalAlignment="Bottom">remove</Button>
+    </Grid>
+</Window>
