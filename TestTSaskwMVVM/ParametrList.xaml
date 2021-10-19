@@ -16,5 +16,7 @@
         <Button Margin="238,265,477,125" RenderTransformOrigin="-1.039,-2.759">ok</Button>
         <Button Margin="238,321,477,69" RenderTransformOrigin="-1.039,-2.759">cancel</Button>
         <Button Margin="238,140,477,250" RenderTransformOrigin="-1.039,-2.759" Click="Button_Click_2">eddit</Button>
+        <Button Margin="360,41,355,349" RenderTransformOrigin="-1.039,-2" Click="Button_Click_3">up</Button>
+        <Button Margin="360,91,355,299" RenderTransformOrigin="-1.039,-2" Click="Button_Click_4">down</Button>
     </Grid>
 </Window>

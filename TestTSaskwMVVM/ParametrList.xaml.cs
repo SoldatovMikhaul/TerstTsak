@@ -29,9 +29,10 @@ namespace TestTakMVVM
             List.Items.Add("Value");
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)//remove button
+        private void Button_Click_1(object sender, RoutedEventArgs e)//remove
         {
             List.Items.Remove(List.SelectedItem);
+            //List.Items
            // List.SelectedItems.IsReadOnly=false
         }
 
@@ -52,7 +53,47 @@ namespace TestTakMVVM
                 // replace the selected item with the new value
                 List.Items[List.SelectedIndex] = newRoomDisplayForm.value;
             }*/
-            
+            /*private void Button_Click_3(object sender, RoutedEventArgs e)//remove
+            {
+                List.Items.Remove(List.SelectedItem);
+                //List.Items
+                // List.SelectedItems.IsReadOnly=false
+            }*/
+
+
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            MoveItem(-1);
+            //List.Items.MoveCurrentToNext();
+        }
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            MoveItem(1);
+            //List.Items.MoveCurrentToNext();
+        }
+        public void MoveItem(int direction)
+        {
+            // Checking selected item
+            if (List.SelectedItem == null || List.SelectedIndex < 0)
+                return; // No selected item - nothing to do
+
+            // Calculate new index using move direction
+            int newIndex = List.SelectedIndex + direction;
+
+            // Checking bounds of the range
+            if (newIndex < 0 || newIndex >= List.Items.Count)
+                return; // Index out of range - nothing to do
+
+            object selected = List.SelectedItem;
+
+            // Removing removable element
+            List.Items.Remove(selected);
+            // Insert it in new position
+            List.Items.Insert(newIndex, selected);
+            // Restore selection
+            //List.SetSelected(newIndex, true);
         }
     }
 }
