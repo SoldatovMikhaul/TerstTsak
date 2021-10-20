@@ -39,7 +39,8 @@ namespace TestTakMVVM
         {
 
             InitializeComponent();
-            DataContext = new ApplicationViewModel();
+            DataContext =
+                 new ApplicationViewModel(new DefaultDialogService(), new JsonFileService());
             connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             /*XmlSerializer formatter = new XmlSerializer(typeof(StudentsList));
             using (FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate))
@@ -199,6 +200,10 @@ namespace TestTakMVVM
         {
             MoveItemInGrid(1);
             //List.Items.MoveCurrentToNext();
+        }
+        private void Window_FormClosing(object sender, RoutedEventArgs e) 
+        { 
+
         }
     }
 }
