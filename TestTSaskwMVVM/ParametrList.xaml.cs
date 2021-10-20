@@ -35,7 +35,16 @@ namespace TestTakMVVM
             //List.Items
            // List.SelectedItems.IsReadOnly=false
         }
-
+        EdditParametr edditParametr = new EdditParametr();
+        private void ListBox1_DoubleClick(object sender, EventArgs e)
+        {
+            //EdditParametr edditParametr = new EdditParametr();
+            edditParametr.Show();
+            if (List.SelectedItem != null)
+            {
+                edditParametr.UpdateInformation.Text = List.SelectedItem.ToString();//.Substring(37);
+            }
+        }
         private void Button_Click_2(object sender, RoutedEventArgs e)//eddit
         {
             /*if (List.SelectedIndex < 0) return;
@@ -60,8 +69,20 @@ namespace TestTakMVVM
                 // List.SelectedItems.IsReadOnly=false
             }*/
 
-
+            //List.Items[List.SelectedIndex] = TexBox.Text;//v1
+            List.Items[List.SelectedIndex] = edditParametr.UpdateInformation.Text;
+            edditParametr.Close();
         }
+
+        /*private void ListBox1_DoubleClick(object sender, EventArgs e)
+        {
+            //EdditParametr edditParametr = new EdditParametr();
+            edditParametr.Show();
+            if (List.SelectedItem != null)
+            {
+                edditParametr.UpdateInformation.Text = List.SelectedItem.ToString().Substring(37);
+            }
+        }*/
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {

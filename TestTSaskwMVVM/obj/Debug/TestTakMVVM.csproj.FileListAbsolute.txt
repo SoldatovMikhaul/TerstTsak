@@ -15,3 +15,5 @@ C:\Users\Misha\source\repos\TestTakMVVM\obj\Debug\TestTakMVVM.pdb
 C:\Users\Misha\source\repos\TestTakMVVM\obj\Debug\TestTakMVVM_MarkupCompile.lref
 C:\Users\Misha\source\repos\TestTakMVVM\obj\Debug\ParametrList.g.cs
 C:\Users\Misha\source\repos\TestTakMVVM\obj\Debug\ParametrList.baml
+C:\Users\Misha\source\repos\TestTakMVVM\obj\Debug\EdditParametr.g.cs
+C:\Users\Misha\source\repos\TestTakMVVM\obj\Debug\EdditParametr.baml

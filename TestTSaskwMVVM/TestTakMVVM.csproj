@@ -56,10 +56,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="EdditParametr.xaml.cs">
+      <DependentUpon>EdditParametr.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ParametrList.xaml.cs">
       <DependentUpon>ParametrList.xaml</DependentUpon>
     </Compile>
     <Compile Include="RelayCommand.cs" />
+    <Page Include="EdditParametr.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

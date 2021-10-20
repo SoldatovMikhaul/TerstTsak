@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="ParametrList" Height="450" Width="800">
     <Grid>
-        <ListBox Margin="10,41,602,69" x:Name="List" IsManipulationEnabled="True">
-            <ListBoxItem >Значение 1</ListBoxItem>
-            <ListBoxItem>Значение 2</ListBoxItem>
+        <ListBox Margin="10,41,602,69" x:Name="List" IsManipulationEnabled="True" MouseDoubleClick="ListBox1_DoubleClick">
+            <!--<ListBoxItem >Значение 1</ListBoxItem>
+            <ListBoxItem>Значение 2</ListBoxItem>-->
         </ListBox>
         <Button Margin="238,41,477,349" RenderTransformOrigin="-1.039,-2.759" Click="Button_Click">add</Button>
         <Button Margin="238,91,477,299" RenderTransformOrigin="-1.039,-2.759" Click="Button_Click_1">remove</Button>
@@ -18,5 +18,9 @@
         <Button Margin="238,140,477,250" RenderTransformOrigin="-1.039,-2.759" Click="Button_Click_2">eddit</Button>
         <Button Margin="360,41,355,349" RenderTransformOrigin="-1.039,-2" Click="Button_Click_3">up</Button>
         <Button Margin="360,91,355,299" RenderTransformOrigin="-1.039,-2" Click="Button_Click_4">down</Button>
+
+
+        <!--<TextBox Margin="360,140,355,250" x:Name="TexBox"/>-->
+
     </Grid>
 </Window>
