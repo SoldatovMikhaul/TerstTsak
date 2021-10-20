@@ -35,6 +35,7 @@ namespace TestTaskMVVM
                     (removeCommand = new RelayCommand(obj =>
                     {
                         Parametr parametr = obj as Parametr;
+                        
                         if (parametr != null)
                         {
                             Parametrs.Remove(parametr);
@@ -60,7 +61,9 @@ namespace TestTaskMVVM
                     new Parametr {Title="Parametr1", Types=Parametr.ParametrTypes.Значение_из_списка },
                     new Parametr {Title="Parametr2", Types=Parametr.ParametrTypes.Набор_значчений_из_списк},
                     new Parametr {Title="Parametr3", Types=Parametr.ParametrTypes.Простая_строка },
-                    new Parametr {Title="Parametr5", Types=Parametr.ParametrTypes.Простая_строка }
+                    new Parametr {Title="Parametr4", Types=Parametr.ParametrTypes.Строка_с_историей},
+                    new Parametr {Title="Parametr5", Types=Parametr.ParametrTypes.Простая_строка },
+                    new Parametr {Title="Parametr6", Types=Parametr.ParametrTypes.Набор_значчений_из_списк }
                 };
         }
 

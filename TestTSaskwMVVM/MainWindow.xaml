@@ -12,7 +12,7 @@
             <ColumnDefinition Width="0.8*" />
         </Grid.ColumnDefinitions>
 
-        <DataGrid x:Name="parametrsGrid" ItemsSource="{Binding Parametrs, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="True" SelectionChanged="DataGrid_SelectionChanged" Height="auto" Width="auto" Margin="0,0,107,268"  CanUserAddRows="True" CanUserDeleteRows="True">
+        <DataGrid x:Name="parametrsGrid" ItemsSource="{Binding Parametrs, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedParametr}" AutoGenerateColumns="True" SelectionChanged="DataGrid_SelectionChanged" Height="auto" Width="auto" Margin="0,0,107,268"  CanUserAddRows="True" CanUserDeleteRows="True">
             <DataGrid.Columns >
                 <!--<DataGridTextColumn Header="Параметр" Binding="{Binding Path=Title}" Width="90"/>
                 <DataGridTemplateColumn Header="Тип">
@@ -42,6 +42,8 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Margin="10,75,287,324"  Height="20px" Width="55px" RenderTransformOrigin="-1.039,-2" Click="Button_Click_3" Grid.Column="1">up</Button>
+        <Button Margin="10,136,287,263" Height="20px" Width="55px" RenderTransformOrigin="-1.039,-2" Click="Button_Click_4" Grid.Column="1">down</Button>
 
         <Button Command="{Binding AddCommand}" Height="20px" Width="55px"  Margin="30,0,0,214" RenderTransformOrigin="-1.867,0.7" HorizontalAlignment="Left" VerticalAlignment="Bottom">add</Button>
         <Button Command="{Binding RemoveCommand}" CommandParameter="{Binding SelectedParametr}" Margin="135,0,0,214" RenderTransformOrigin="1,1" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Height="20px" Width="70px">remove</Button>

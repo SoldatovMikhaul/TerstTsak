@@ -136,5 +136,69 @@ namespace TestTakMVVM
             }
             //UpdateDB();
         }
+        public void MoveItemInGrid(int direction)
+        {
+            // Checking selected item
+            if (parametrsGrid.SelectedItem == null || parametrsGrid.SelectedIndex < 0)
+                return; // No selected item - nothing to do
+
+            // Calculate new index using move direction
+            int newIndex = parametrsGrid.SelectedIndex + direction;
+
+            // Checking bounds of the range
+            if (newIndex < 0 || newIndex >= parametrsGrid.Items.Count)
+                return; // Index out of range - nothing to do
+
+            object selected = parametrsGrid.SelectedItem;
+
+            // Removing removable element
+            //parametrsGrid.Items.Remove(selected);
+
+            if (parametrsGrid.SelectedItems != null)
+            {
+                for (int i = 0; i < parametrsGrid.SelectedItems.Count; i++)
+                {
+                    DataRowView datarowView = parametrsGrid.SelectedItems[i] as DataRowView;
+                    if (datarowView != null)
+                    {
+                        DataRow dataRow = (DataRow)datarowView.Row;
+                        //dataRow.ItemArray[i+1] = parametrsGrid.SelectedItems[i];
+                        dataRow.ItemArray[i] = dataRow.ItemArray[i - 1];
+                        Console.WriteLine("dataRow.ItemArray[i] = " + dataRow.ItemArray[i]);
+                        Console.WriteLine();
+                        //dataRow.Delete();
+                        //dataRow.ItemArray.SetValue(selected, newIndex);
+                    }
+                }
+            }
+
+
+            // Insert it in new position
+            // parametrsGrid.Items.Insert(newIndex, selected);
+            /*if (parametrsGrid.SelectedItems != null)
+            {
+                for (int i = 0; i < parametrsGrid.SelectedItems.Count; i++)
+                {
+                    DataRowView datarowView = parametrsGrid.SelectedItems[i] as DataRowView;
+                    if (datarowView != null)
+                    {
+                        DataRow dataRow = (DataRow)datarowView.Row;
+                        dataRow.ItemArray.SetValue(selected, newIndex);
+                    }
+                }
+            }*/
+            // Restore selection
+            //List.SetSelected(newIndex, true);
+        }
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            MoveItemInGrid(-1);
+            //List.Items.MoveCurrentToNext();
+        }
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            MoveItemInGrid(1);
+            //List.Items.MoveCurrentToNext();
+        }
     }
 }
