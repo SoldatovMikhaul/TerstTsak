@@ -32,67 +32,31 @@ namespace TestTakMVVM
         private void Button_Click_1(object sender, RoutedEventArgs e)//remove
         {
             List.Items.Remove(List.SelectedItem);
-            //List.Items
-           // List.SelectedItems.IsReadOnly=false
         }
         EdditParametr edditParametr = new EdditParametr();
         private void ListBox1_DoubleClick(object sender, EventArgs e)
         {
-            //EdditParametr edditParametr = new EdditParametr();
+
             edditParametr.Show();
             if (List.SelectedItem != null)
             {
-                edditParametr.UpdateInformation.Text = List.SelectedItem.ToString();//.Substring(37);
+                edditParametr.UpdateInformation.Text = List.SelectedItem.ToString();
             }
         }
         private void Button_Click_2(object sender, RoutedEventArgs e)//eddit
         {
-            /*if (List.SelectedIndex < 0) return;
-
-            var tmpValue = List.Items[List.SelectedIndex].ToString();
-            RoomDisplayForm newRoomDisplayForm = new RoomDisplayForm();
-            newRoomDisplayForm.value = tmpValue;
-            newRoomDisplayForm.ShowDialog();
-
-            //TODO: inside "newRoomDisplayForm" set the value to the textbox
-            // ie.: myValueTextBox.Text = this.value;
-
-            if (newRoomDisplayForm.DialogResult == DialogResult.OK)
-            {
-                // replace the selected item with the new value
-                List.Items[List.SelectedIndex] = newRoomDisplayForm.value;
-            }*/
-            /*private void Button_Click_3(object sender, RoutedEventArgs e)//remove
-            {
-                List.Items.Remove(List.SelectedItem);
-                //List.Items
-                // List.SelectedItems.IsReadOnly=false
-            }*/
-
-            //List.Items[List.SelectedIndex] = TexBox.Text;//v1
             List.Items[List.SelectedIndex] = edditParametr.UpdateInformation.Text;
             edditParametr.Close();
         }
 
-        /*private void ListBox1_DoubleClick(object sender, EventArgs e)
-        {
-            //EdditParametr edditParametr = new EdditParametr();
-            edditParametr.Show();
-            if (List.SelectedItem != null)
-            {
-                edditParametr.UpdateInformation.Text = List.SelectedItem.ToString().Substring(37);
-            }
-        }*/
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             MoveItem(-1);
-            //List.Items.MoveCurrentToNext();
         }
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             MoveItem(1);
-            //List.Items.MoveCurrentToNext();
         }
         public void MoveItem(int direction)
         {
@@ -113,8 +77,7 @@ namespace TestTakMVVM
             List.Items.Remove(selected);
             // Insert it in new position
             List.Items.Insert(newIndex, selected);
-            // Restore selection
-            //List.SetSelected(newIndex, true);
+
         }
     }
 }

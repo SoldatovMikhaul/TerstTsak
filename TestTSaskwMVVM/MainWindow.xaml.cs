@@ -33,8 +33,6 @@ namespace TestTakMVVM
         }
 
         string connectionString;
-        SqlDataAdapter adapter;
-        DataTable parametrsTable;
         public MainWindow()
         {
 
@@ -42,53 +40,13 @@ namespace TestTakMVVM
             DataContext =
                  new ApplicationViewModel(new DefaultDialogService(), new JsonFileService());
             connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-            /*XmlSerializer formatter = new XmlSerializer(typeof(StudentsList));
-            using (FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate))
-            {
-                formatter.Serialize(fs, dashboard);
-            }*/
-
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            string sql = "SELECT * FROM Parametrs_Table";
-            parametrsTable = new DataTable();
-            SqlConnection connection = null;
-            try
-            {
-                connection = new SqlConnection(connectionString);
-                SqlCommand command = new SqlCommand(sql, connection);
-                adapter = new SqlDataAdapter(command);
-                Console.WriteLine("new SqlDataAdapter(command) " + new SqlDataAdapter(command));
-                // установка команды на добавление для вызова хранимой процедуры
-                adapter.InsertCommand = new SqlCommand("sp_InserParametr", connection);
-                adapter.InsertCommand.CommandType = CommandType.StoredProcedure;
-                adapter.InsertCommand.Parameters.Add(new SqlParameter("@title", SqlDbType.NVarChar, 50, "Title"));
-                adapter.InsertCommand.Parameters.Add(new SqlParameter("@type", SqlDbType.NVarChar, 50, "Types"));
-                SqlParameter parameter = adapter.InsertCommand.Parameters.Add("@Id", SqlDbType.Int, 0, "Id");
-                parameter.Direction = ParameterDirection.Output;
 
-                connection.Open();
-                adapter.Fill(parametrsTable);
-                parametrsGrid.ItemsSource = parametrsTable.DefaultView;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (connection != null)
-                    connection.Close();
-            }
         }
 
-        private void UpdateDB()
-        {
-            SqlCommandBuilder comandbuilder = new SqlCommandBuilder(adapter);
-            adapter.Update(parametrsTable);
-        }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -97,29 +55,20 @@ namespace TestTakMVVM
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //parametrsGrid.Items.Add(new Parametr());
-            UpdateDB();
         }
 
         private void Button1_Click(object sender, RoutedEventArgs e)
         {
             parametrsGrid.Items.Remove(parametrsGrid.SelectedItem);
-            UpdateDB();
         }
         private void ChangeText_Click(object sender, RoutedEventArgs e)
         {
             ParametrList taskWindow = new ParametrList();
             taskWindow.Show();
         }
-        /*private void Main_wimndow_Load(object sender, RoutedEventArgs e) 
-        {
-            List<Parametr> parametrs = new List<Parametr>();
-            parametrs.Add(new Parametr("param5", Parametr.ParametrTypes.Значение_из_списка));
-
-        }*/
         private void updateButton_Click(object sender, RoutedEventArgs e)
         {
-            UpdateDB();
+
         }   
         private void deleteButton_Click(object sender, RoutedEventArgs e)
         {
@@ -135,7 +84,6 @@ namespace TestTakMVVM
                     }
                 }
             }
-            //UpdateDB();
         }
         public void MoveItemInGrid(int direction)
         {
@@ -163,43 +111,28 @@ namespace TestTakMVVM
                     if (datarowView != null)
                     {
                         DataRow dataRow = (DataRow)datarowView.Row;
-                        //dataRow.ItemArray[i+1] = parametrsGrid.SelectedItems[i];
                         dataRow.ItemArray[i] = dataRow.ItemArray[i - 1];
                         Console.WriteLine("dataRow.ItemArray[i] = " + dataRow.ItemArray[i]);
                         Console.WriteLine();
-                        //dataRow.Delete();
-                        //dataRow.ItemArray.SetValue(selected, newIndex);
                     }
                 }
             }
 
 
-            // Insert it in new position
-            // parametrsGrid.Items.Insert(newIndex, selected);
-            /*if (parametrsGrid.SelectedItems != null)
-            {
-                for (int i = 0; i < parametrsGrid.SelectedItems.Count; i++)
-                {
-                    DataRowView datarowView = parametrsGrid.SelectedItems[i] as DataRowView;
-                    if (datarowView != null)
-                    {
-                        DataRow dataRow = (DataRow)datarowView.Row;
-                        dataRow.ItemArray.SetValue(selected, newIndex);
-                    }
-                }
-            }*/
-            // Restore selection
-            //List.SetSelected(newIndex, true);
+        }
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+
         }
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             MoveItemInGrid(-1);
-            //List.Items.MoveCurrentToNext();
+
         }
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             MoveItemInGrid(1);
-            //List.Items.MoveCurrentToNext();
         }
         private void Window_FormClosing(object sender, RoutedEventArgs e) 
         { 

@@ -20,7 +20,6 @@
         <Button Margin="360,91,355,299" RenderTransformOrigin="-1.039,-2" Click="Button_Click_4">down</Button>
 
 
-        <!--<TextBox Margin="360,140,355,250" x:Name="TexBox"/>-->
 
     </Grid>
 </Window>

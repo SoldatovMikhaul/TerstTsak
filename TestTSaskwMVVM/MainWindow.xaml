@@ -6,35 +6,16 @@
         xmlns:local="clr-namespace:TestTakMVVM"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    
+
     <Grid>
-        
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="0.8*" />
+            <ColumnDefinition Width="425*" />
+            <ColumnDefinition Width="367*" />
         </Grid.ColumnDefinitions>
 
         <DataGrid x:Name="parametrsGrid" ItemsSource="{Binding Parametrs, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedParametr}" AutoGenerateColumns="True" SelectionChanged="DataGrid_SelectionChanged" Height="auto" Width="auto" Margin="0,0,107,268"  CanUserAddRows="True" CanUserDeleteRows="True">
             <DataGrid.Columns >
-                <!--<DataGridTextColumn Header="Параметр" Binding="{Binding Path=Title}" Width="90"/>
-                <DataGridTemplateColumn Header="Тип">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                         <TextBlock Text="{Binding Path=Types}" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                    <DataGridTemplateColumn.CellEditingTemplate>
-                        <DataTemplate>
-                            <ComboBox ItemsSource="{Binding Path=Types}" SelectedItem="{Binding Path=Types}">
-                                <ComboBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding Path=Types}" />
-                                    </DataTemplate>
-                                </ComboBox.ItemTemplate>
-                            </ComboBox>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellEditingTemplate>
-                </DataGridTemplateColumn>-->
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -44,12 +25,12 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Margin="0,35,297,364"  Height="20px" Width="55px" RenderTransformOrigin="-1.039,-2" Click="Button_Click_3" Grid.Column="1">up</Button>
-        <Button Margin="0,80,297,319" Height="20px" Width="55px" RenderTransformOrigin="-1.039,-2" Click="Button_Click_4" Grid.Column="1">down</Button>
+        <Button Margin="30,0,0,149" RenderTransformOrigin="1,1" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Height="20px" Width="50" Click="Button_Click_3">up</Button>
+        <Button Margin="135,0,0,149" RenderTransformOrigin="1,1" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Height="20px" Width="50" Click="Button_Click_4">down</Button>
 
         <Button Command="{Binding AddCommand}" Height="20px" Width="55px"  Margin="30,0,0,214" RenderTransformOrigin="-1.867,0.7" HorizontalAlignment="Left" VerticalAlignment="Bottom">add</Button>
         <Button Command="{Binding RemoveCommand}" CommandParameter="{Binding SelectedParametr}" Margin="135,0,0,214" RenderTransformOrigin="1,1" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Height="20px" Width="70px">remove</Button>
-        <Button Command="{Binding SaveCommand}" Margin="30,0,0,169" RenderTransformOrigin="1,1" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Height="20px" Width="50">save</Button>
-        <Button Command="{Binding OpenCommand}" Margin="135,0,0,169" RenderTransformOrigin="1,1" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Height="20px" Width="70">load</Button>
+        <Button Command="{Binding SaveCommand}" Margin="30,0,0,184" RenderTransformOrigin="1,1" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Height="20px" Width="50" Click="Button_Click_1">save</Button>
+        <Button Command="{Binding OpenCommand}" Margin="135,0,0,184" RenderTransformOrigin="1,1" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Height="20px" Width="70">load</Button>
     </Grid>
 </Window>
