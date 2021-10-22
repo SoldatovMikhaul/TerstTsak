@@ -25,12 +25,12 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Margin="30,0,0,149" RenderTransformOrigin="1,1" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Height="20px" Width="50" Click="Button_Click_3">up</Button>
-        <Button Margin="135,0,0,149" RenderTransformOrigin="1,1" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Height="20px" Width="50" Click="Button_Click_4">down</Button>
+        <Button Margin="30,0,0,149" RenderTransformOrigin="1,1" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Height="20px" Width="55" Click="Button_Click_3">up</Button>
+        <Button Margin="135,0,0,149" RenderTransformOrigin="1,1" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Height="20px" Width="70" Click="Button_Click_4">down</Button>
 
         <Button Command="{Binding AddCommand}" Height="20px" Width="55px"  Margin="30,0,0,214" RenderTransformOrigin="-1.867,0.7" HorizontalAlignment="Left" VerticalAlignment="Bottom">add</Button>
         <Button Command="{Binding RemoveCommand}" CommandParameter="{Binding SelectedParametr}" Margin="135,0,0,214" RenderTransformOrigin="1,1" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Height="20px" Width="70px">remove</Button>
-        <Button Command="{Binding SaveCommand}" Margin="30,0,0,184" RenderTransformOrigin="1,1" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Height="20px" Width="50" Click="Button_Click_1">save</Button>
+        <Button Command="{Binding SaveCommand}" Margin="30,0,0,184" RenderTransformOrigin="1,1" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Height="20px" Width="55" Click="Button_Click_1">save</Button>
         <Button Command="{Binding OpenCommand}" Margin="135,0,0,184" RenderTransformOrigin="1,1" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Height="20px" Width="70">load</Button>
     </Grid>
 </Window>

@@ -115,6 +115,7 @@ namespace TestTaskMVVM
             this.fileService = fileService;
             Parametrs = new ObservableCollection<Parametr>
                 {
+
                     new Parametr {Title="Parametr1", Types=Parametr.ParametrTypes.Значение_из_списка },
                     new Parametr {Title="Parametr2", Types=Parametr.ParametrTypes.Набор_значчений_из_списк},
                     new Parametr {Title="Parametr3", Types=Parametr.ParametrTypes.Простая_строка },
